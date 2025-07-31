@@ -1,0 +1,20 @@
+         +---------------------+
+         |  Client / API Call  |
+         +----------+----------+
+                    |
+         +----------v----------+
+         |  Azure Function     |  <-- same API contract
+         |  Proxy Logic        |
+         +----+----------+-----+
+              |          |
+       +------v+      +--v-------------------+
+       | Cosmos |      | Azure Blob Storage  |
+       |  DB    |      | (Archived Records)  |
+       +--------+      +---------------------+
+              ^
+              |
+       +------|------+
+       | Azure Timer |
+       |  Function / |
+       | Data Factory|
+       +-------------+
